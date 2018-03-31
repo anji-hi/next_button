@@ -110,16 +110,11 @@
 <script>
 $(document).ready(function() {
   var next_button = $('.next_button');
-  // スクロール量を画面の高さの90%に設定
-  var scroll_target = $(window).scrollTop() + $(window).height() * 0.9;
+  var scroll_target;
 
-  // スクロールが発生したら、スクロール先の位置情報を更新
-  $(window).scroll(function() {
-    scroll_target = $(window).scrollTop() + $(window).height() * 0.9;
-  });
-
-  // ボタンを押したら設定された位置にスクロール
+  // ボタンを押したら画面の高さの90%スクロール
   next_button.click(function(){
+    scroll_target = $(window).scrollTop() + $(window).height() * 0.9;
     $('body,html').animate({scrollTop: scroll_target},500);
     return false;
   });
